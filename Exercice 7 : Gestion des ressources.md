@@ -95,7 +95,3 @@ Pour nettoyer les ressources créées après l'exercice, vous pouvez supprimer l
 kubectl delete pod nginx-requests
 kubectl delete pod nginx-limits
 ```
-
-## Conclusion
-
-En complétant cet exercice, vous aurez appris à configurer les requêtes et les limites de ressources pour des pods dans Kubernetes, garantissant ainsi une meilleure gestion des ressources et une performance optimisée pour vos applications.

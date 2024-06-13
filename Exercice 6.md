@@ -1,17 +1,7 @@
-# Installation de MetalLB sur Minikube avec DaemonSet
-
 ## Objectif
 Installer MetalLB, un load balancer pour les clusters Kubernetes, en utilisant un DaemonSet sur Minikube.
 
-## Prérequis
-- Minikube installé et configuré
-- `kubectl` configuré pour interagir avec votre cluster Minikube
-
-## Étape 1 : Installer Minikube
-
-Si ce n'est pas déjà fait, installez Minikube en suivant les instructions officielles [ici](https://minikube.sigs.k8s.io/docs/start/).
-
-## Étape 2 : Démarrer Minikube
+## Étape 1 : Démarrer Minikube
 
 Démarrez Minikube avec un profile spécifique pour éviter les conflits avec d'autres configurations.
 
@@ -19,7 +9,7 @@ Démarrez Minikube avec un profile spécifique pour éviter les conflits avec d'
 minikube start --profile=metallb
 ```
 
-## Étape 3 : Activer l'addon de configuration de MetalLB
+## Étape 2 : Activer l'addon de configuration de MetalLB
 
 Minikube fournit un addon MetalLB pour simplifier l'installation. Vous pouvez l'activer en utilisant la commande suivante :
 
@@ -29,7 +19,7 @@ minikube addons enable metallb --profile=metallb
 
 Cette commande installera MetalLB et le configurera automatiquement.
 
-## Étape 4 : Configurer MetalLB
+## Étape 3 : Configurer MetalLB
 
 Une fois que MetalLB est installé, vous devez le configurer pour définir le pool d'adresses IP qu'il utilisera pour allouer aux services de type LoadBalancer.
 
@@ -58,7 +48,7 @@ kubectl apply -f metallb-config.yaml
 
 Note : Les adresses IP dans `addresses` doivent être dans le même sous-réseau que celui de Minikube. Vous pouvez trouver la plage d'adresses IP en utilisant la commande `minikube ip` et ajuster en conséquence.
 
-## Étape 5 : Vérifier l'installation de MetalLB
+## Étape 4 : Vérifier l'installation de MetalLB
 
 Pour vérifier que MetalLB a été correctement installé et configuré, utilisez les commandes suivantes :
 
@@ -116,7 +106,3 @@ Appliquez les fichiers :
 kubectl apply -f nginx-deployment.yaml
 kubectl apply -f nginx-service.yaml
 ```
-
-### Conclusion
-
-En suivant ces étapes, vous avez installé et configuré MetalLB sur Minikube en utilisant un DaemonSet. Vous pouvez maintenant créer des services de type LoadBalancer et MetalLB allouera des adresses IP externes pour ces services.

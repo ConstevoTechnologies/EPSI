@@ -70,7 +70,7 @@ spec:
       containers:
       - name: example
         image: busybox
-        command: ["sh", "-c", "echo 'Hello, Kubernetes!' && sleep 30"]
+        command: ["sh", "-c", "echo 'Hello, Kubernetes CronJob!' > /mnt/data/cronjob.txt"]
         volumeMounts:
         - mountPath: /mnt/data
           name: example-storage
